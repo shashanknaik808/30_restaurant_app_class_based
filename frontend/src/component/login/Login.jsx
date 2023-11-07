@@ -10,7 +10,15 @@ class Login extends Component {
         };
     }
 
-    
+    async handleSubmit(event) {
+        event.preventDefault();
+        let user = {
+            username: event.target.username.value,
+            password: event.target.password.value
+        }
+
+
+    }
 
     render() {
         return (
