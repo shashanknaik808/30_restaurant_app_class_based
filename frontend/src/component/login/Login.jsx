@@ -11,14 +11,16 @@ class Login extends Component {
         };
     }
 
-    async handleSubmit(event) {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        let user = {
-            username: event.target.username.value,
-            password: event.target.password.value
-        }
+        const { username, password } = this.state;
 
+        console.log('Form data submitted:\nUsername:', username, '\nPassword:', password);
 
+        this.setState({
+            username: 'Shashank',
+            password: 'sak',
+        });
     }
 
     render() {
@@ -27,13 +29,24 @@ class Login extends Component {
                 <div className='wrapper'>
                     <h1>Login Form</h1>
                     <form onSubmit={this.handleSubmit}>
-                        Username: <input type='text' name='username' id='username' /><br />
-                        Password: <input type='password' name='password' id='password' /><br />
+                        Username: <input
+                            type='text'
+                            name='username'
+                            id='username'
+                            value={this.state.username}
+                        /><br />
+                        Password: <input
+                            type='password'
+                            name='password'
+                            id='password'
+                            value={this.state.password}
+                        /><br />
                         <input type='submit' value='Login' />
                     </form>
                 </div>
             </div>
         );
+
     }
 }
 
