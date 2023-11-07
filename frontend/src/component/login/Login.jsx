@@ -11,6 +11,7 @@ class Login extends Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleSubmit(event) {
@@ -25,23 +26,34 @@ class Login extends Component {
         });
     }
 
+    handleInputChange(event) {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value,
+        });
+    }
+
     render() {
         return (
             <div className='pri'>
                 <div className='wrapper'>
                     <h1>Login Form</h1>
                     <form onSubmit={this.handleSubmit}>
-                        Username: <input
+                        Username:
+                        <input
                             type='text'
                             name='username'
                             id='username'
                             value={this.state.username}
+                            onChange={this.handleInputChange}
                         /><br />
-                        Password: <input
+                        Password:
+                        <input
                             type='password'
                             name='password'
                             id='password'
                             value={this.state.password}
+                            onChange={this.handleInputChange}
                         /><br />
                         <input type='submit' value='Login' />
                     </form>
