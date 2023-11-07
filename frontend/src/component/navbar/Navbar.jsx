@@ -41,9 +41,41 @@ class Login extends Component {
         const { username, password } = this.state;
         console.log('Form data submitted:\nUsername:', username, '\nPassword:', password);
     }
+
+
+    render() {
+        return (
+            <div className='pri'>
+                <div className='wrapper'>
+                    <h1>Login Form</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className='container'>
+                            <label htmlFor="username"><b>Username</b></label>
+                            <input
+                                type='text'
+                                name='username'
+                                id='username'
+                                value={this.state.username}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                            <label htmlFor="password"><b>Password</b></label>
+                            <input
+                                type='password'
+                                name='password'
+                                id='password'
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                            <input type='submit' value='Login' />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
 }
-
-
 
 
 export default Navbar;
