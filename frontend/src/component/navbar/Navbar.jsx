@@ -6,14 +6,14 @@ class Navbar extends Component {
     render() {
         return (
             <div className='navbar-container dark-mode'>
-                <div className='logo'>Heaven's Kitchen</div>
+                <div className='logo'><h3>Heaven's Kitchen</h3></div>
                 <div className='buttons'>
                     <Link to="/login">
-                        <button className='nav-button'>Login</button>
+                        Login
                     </Link>
                     <br />
                     <Link to="/restaurant">
-                        <button className='nav-button'>Restaurant</button>
+                        Restaurant
                     </Link>
                 </div>
             </div>
