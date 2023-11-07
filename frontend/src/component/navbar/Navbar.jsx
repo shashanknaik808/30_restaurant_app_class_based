@@ -36,6 +36,11 @@ class Login extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+        const { username, password } = this.state;
+        console.log('Form data submitted:\nUsername:', username, '\nPassword:', password);
+    }
 }
 
 
