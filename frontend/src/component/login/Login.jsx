@@ -8,6 +8,7 @@ class Login extends Component {
         this.state = {
             username: 'Shashank',
             password: 'sak',
+            errorMessage: '', // Add an error message state
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,18 +19,23 @@ class Login extends Component {
         event.preventDefault();
         const { username, password } = this.state;
 
-        console.log('Form data submitted:\nUsername:', username, '\nPassword:', password);
-
-        this.setState({
-            username: 'Shashank',
-            password: 'sak',
-        });
+        if (username === 'Shashank' && password === 'sak') {
+            console.log('Login successful');
+        } 
+        
+        else {
+            console.log('Login failed');
+            this.setState({
+                errorMessage: 'Incorrect username or password', // Set an error message
+            });
+        }
     }
 
     handleInputChange(event) {
         const { name, value } = event.target;
         this.setState({
             [name]: value,
+            errorMessage: '',
         });
     }
 
@@ -39,6 +45,9 @@ class Login extends Component {
                 <div className='wrapper'>
                     <h1>Login Form</h1>
                     <form onSubmit={this.handleSubmit}>
+                        {this.state.errorMessage && (
+                            <div className="error-message">{this.state.errorMessage}</div>
+                        )}
                         Username:
                         <input
                             type='text'
