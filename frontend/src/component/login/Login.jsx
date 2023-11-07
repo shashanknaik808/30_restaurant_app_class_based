@@ -9,9 +9,11 @@ class Login extends Component {
             username: 'Shashank',
             password: 'sak',
         };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit = async (event) => {
+    handleSubmit(event) {
         event.preventDefault();
         const { username, password } = this.state;
 
@@ -46,7 +48,6 @@ class Login extends Component {
                 </div>
             </div>
         );
-
     }
 }
 
