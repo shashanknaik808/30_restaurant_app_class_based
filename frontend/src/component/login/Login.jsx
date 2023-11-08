@@ -27,7 +27,23 @@ class Login extends Component {
             body: JSON.stringify(user),
         };
 
-        
+        try {
+            fetch(backend_url, options)
+                .then((response) => response.json())
+                .then((responseData) => {
+                    if (responseData.flag === true) {
+                        const navigate = this.props.navigate;
+                        navigate('/restaurant');
+                    } else {
+                        this.setState({ errorMessage: responseData.msg });
+                    }
+                })
+                .catch((error) => {
+                    console.error('API call error:', error);
+                });
+        } catch (error) {
+            console.error('API call error:', error);
+        }
     }
 
     render() {
