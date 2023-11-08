@@ -44,14 +44,33 @@ class Restaurant extends Component {
     render() {
 
         const { flag, foodData, drinkData } = this.state.menuData;
-        
+
         return (
             <div className='pri'>
+                <h1> Food Menu</h1>
+
                 {flag ? (
-                    <div>
-                        <h1>{foodData[0].foodName}</h1>
-                        <h1>{drinkData[0].drinkName}</h1>
-                    </div>
+                    <ul>
+                        {foodData.map((item) => (
+                            <li key={item.foodName}>
+                                Food Name is {item.foodName}, Price: {item.price}, Category: {item.category}
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <h1>Loading</h1>
+                )}
+
+                <h1> Drink Menu</h1>
+
+                {flag ? (
+                    <ul>
+                        {drinkData.map((item) => (
+                            <li key={item.drinkName}>
+                                Drink Name is {item.drinkName}, Price: {item.price}, Category: {item.category}
+                            </li>
+                        ))}
+                    </ul>
                 ) : (
                     <h1>Loading</h1>
                 )}
