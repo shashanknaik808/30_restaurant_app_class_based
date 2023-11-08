@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
 
 class Login extends Component {
     constructor(props) {
@@ -32,9 +31,9 @@ class Login extends Component {
                 .then((response) => response.json())
                 .then((responseData) => {
                     if (responseData.flag === true) {
-                        const navigate = this.props.navigate;
-                        navigate('/restaurant');
-                    } else {
+                        window.location.href = '/restaurant';
+                    }
+                    else {
                         this.setState({ errorMessage: responseData.msg });
                     }
                 })
