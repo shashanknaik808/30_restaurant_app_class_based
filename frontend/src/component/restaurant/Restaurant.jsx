@@ -42,9 +42,19 @@ class Restaurant extends Component {
     }
 
     render() {
+
+        const { flag, foodData, drinkData } = this.state.menuData;
+        
         return (
-            <div>
-                <h1>Restaurant Component</h1>
+            <div className='pri'>
+                {flag ? (
+                    <div>
+                        <h1>{foodData[0].foodName}</h1>
+                        <h1>{drinkData[0].drinkName}</h1>
+                    </div>
+                ) : (
+                    <h1>Loading</h1>
+                )}
             </div>
         );
     }
