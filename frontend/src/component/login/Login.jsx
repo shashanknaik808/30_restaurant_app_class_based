@@ -59,6 +59,12 @@ class Login extends Component {
                             <input type="password" name='password' id='password' required />
 
                             <button type='submit'>Login</button>
+
+                            {this.state.errorMessage && (
+                                <div className="error-message">
+                                    {this.state.errorMessage}
+                                </div>
+                            )}
                         </div>
                     </form>
                 </div>
