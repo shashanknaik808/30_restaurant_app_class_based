@@ -6,37 +6,28 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'Shashank',
-            password: 'sak',
-            errorMessage: '', // Add an error message state
+            errorMessage: '',
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const { username, password } = this.state;
+        const username = event.target.username.value;
+        const password = event.target.password.value;
 
-        if (username === 'Shashank' && password === 'sak') {
-            console.log('Login successful');
-        } 
+        const user = {
+            username,
+            password,
+        };
+
+        const backend_url = 'http://localhost:3200/login';
+        const options = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user),
+        };
+
         
-        else {
-            console.log('Login failed');
-            this.setState({
-                errorMessage: 'Incorrect username or password', // Set an error message
-            });
-        }
-    }
-
-    handleInputChange(event) {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value,
-            errorMessage: '',
-        });
     }
 
     render() {
@@ -44,27 +35,16 @@ class Login extends Component {
             <div className='pri'>
                 <div className='wrapper'>
                     <h1>Login Form</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        {this.state.errorMessage && (
-                            <div className="error-message">{this.state.errorMessage}</div>
-                        )}
-                        Username:
-                        <input
-                            type='text'
-                            name='username'
-                            id='username'
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                        /><br />
-                        Password:
-                        <input
-                            type='password'
-                            name='password'
-                            id='password'
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                        /><br />
-                        <input type='submit' value='Login' />
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <div className='container'>
+                            <label htmlFor="username"> <b>Username</b></label>
+                            <input type="text" name='username' id='username' required />
+
+                            <label htmlFor="password"> <b>Password</b></label>
+                            <input type="password" name='password' id='password' required />
+
+                            <button type='submit'>Login</button>
+                        </div>
                     </form>
                 </div>
             </div>
