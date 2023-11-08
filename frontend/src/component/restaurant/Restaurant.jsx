@@ -13,17 +13,25 @@ class Restaurant extends Component {
         };
     }
 
-    componentDidMount() {
-        this.getData();
+    async componentDidMount() {
+        await this.getData();
     }
 
     async getData() {
         let backend_url = 'http://localhost:3200/data';
+
         try {
             let response = await fetch(backend_url);
+
             if (response.ok) {
                 let responseData = await response.json();
-                this.setState({ menuData: responseData });
+                this.setState({
+                    menuData: {
+                        flag: true,
+                        foodData: responseData[0],
+                        drinkData: responseData[1],
+                    },
+                });
                 console.log(responseData);
             } else {
                 console.error('Failed to fetch data');
