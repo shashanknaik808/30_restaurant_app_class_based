@@ -32,7 +32,7 @@ let foodData = [
 let drinkData = [
     { drinkName: 'Virgin Mojito', price: 'Rs.250/', category: 'mocktail' },
     { drinkName: 'Pinacolada', price: 'Rs.350/', category: 'mocktail' },
-    { drinkName: 'Old Fashioned', price: 'Rs.550/', category: 'cocktail' },
+    { drinkName: 'Sex on the Beach', price: 'Rs.550/', category: 'cocktail' },
     { drinkName: 'Moscow Mule', price: 'Rs.650/', category: 'cocktail' },
 ]
 

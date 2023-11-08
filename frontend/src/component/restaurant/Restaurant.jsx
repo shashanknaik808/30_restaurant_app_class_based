@@ -72,28 +72,38 @@ class Restaurant extends Component {
                                     </Card.Body>
                                 </Card>
                             ))}
-                    </div>
+                        </div>
                     </ul>
-        ) : (
-            <h1>Loading</h1>
-        )
-    }
+                ) : (
+                    <h1>Loading</h1>
+                )
+                }
 
                 <h1> Drink Menu</h1>
 
-{
-    flag ? (
-        <ul>
-            {drinkData.map((item) => (
-                <li key={item.drinkName}>
-                    Drink Name is {item.drinkName}, Price: {item.price}, Category: {item.category}
-                </li>
-            ))}
-        </ul>
-    ) : (
-        <h1>Loading</h1>
-    )
-}
+                {
+                    flag ? (
+                        <ul>
+                            {drinkData.map((item) => (
+                                <Card className='drink-item' style={{ width: '18rem' }} key={item.drinkName}>
+                                    <Card.Img variant='top' src={'images/drink/' + item.drinkName + '.jpg'} />
+                                    <Card.Body className={item.catogory === 'mocktail' ? 'mocktail' : 'cocktail'}>
+                                        <Card.Title>{item.drinkName} : {item.price}</Card.Title>
+                                        <Card.Text>
+                                            {item.drinkName} is an amazing Drink. You should try it.
+                                        </Card.Text>
+                                        <Card.Text>
+                                            Category: {item.catogory}
+                                        </Card.Text>
+                                        <Button variant='primary'>Buy Now</Button>
+                                    </Card.Body>
+                                </Card>
+                            ))}
+                        </ul>
+                    ) : (
+                        <h1>Loading</h1>
+                    )
+                }
             </div >
         );
     }
