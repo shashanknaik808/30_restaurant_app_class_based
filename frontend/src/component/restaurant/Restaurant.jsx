@@ -47,7 +47,7 @@ class Restaurant extends Component {
         const { flag, foodData, drinkData } = this.state.menuData;
 
         return (
-            <div className='pri'>
+            <div className='pri1'>
                 <h1> Food Menu</h1>
 
                 {flag ? (
