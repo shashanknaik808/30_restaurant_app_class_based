@@ -87,13 +87,13 @@ class Restaurant extends Component {
                             {drinkData.map((item) => (
                                 <Card className='drink-item' style={{ width: '18rem' }} key={item.drinkName}>
                                     <Card.Img variant='top' src={'images/drink/' + item.drinkName + '.jpg'} />
-                                    <Card.Body className={item.catogory === 'mocktail' ? 'mocktail' : 'cocktail'}>
+                                    <Card.Body className={item.category === 'mocktail' ? 'mocktail' : 'cocktail'}>
                                         <Card.Title>{item.drinkName} : {item.price}</Card.Title>
                                         <Card.Text>
                                             {item.drinkName} is an amazing Drink. You should try it.
                                         </Card.Text>
                                         <Card.Text>
-                                            Category: {item.catogory}
+                                            Category: {item.category}
                                         </Card.Text>
                                         <Button variant='primary'>Buy Now</Button>
                                     </Card.Body>
@@ -104,6 +104,7 @@ class Restaurant extends Component {
                         <h1>Loading</h1>
                     )
                 }
+
             </div >
         );
     }
